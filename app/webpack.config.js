@@ -11,6 +11,9 @@ module.exports = {
             template: path.resolve(__dirname, 'public', 'index.html'),
         }),
     ],
+    resolve: {
+        extensions: [".ts", ".tsx", ".js"]
+    },
     module: {
         rules: [
             {
@@ -23,9 +26,13 @@ module.exports = {
                 test: /\.scss$/,
                 use: ['style-loader', 'css-loader', 'sass-loader'],
             }, {
-                test: /\.(js|jsx|ts|tsx)$/,
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: ['babel-loader'],
+            }, {
+                test: /\.(ts|tsx)$/,
+                exclude: /node_modules/,
+                use: ['ts-loader'],
             }
         ]
     }
