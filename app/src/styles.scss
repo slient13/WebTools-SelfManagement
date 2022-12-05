@@ -1,5 +1,41 @@
-$primary-bg: aqua;
+// color
+$background-color: (
+    light: #d9d9d9,
+    dark: #333
+);
+$border-color: (
+    light: #aaaaaa,
+    dark: #aaaaaa
+);
+$border-color-selected: (
+    light: #00acac,
+    dark: #c900c9
+);
+$font-color: (
+    light: #000000,
+    dark: #d9d9d9
+);
+// shape
+$border-radius: 10px;
+// size
+$font-size-big: 24px;
+$font-size-normal: 16px;
+$font-size-small: 12px;
 
-body {
-    background-color: $primary-bg;
+.light {
+    background-color: map-get($map: $background-color, $key: light);
+    color: map-get($map: $font-color, $key: light);
+    border-color: map-get($map: $border-color, $key: light);
+}
+
+.dark {
+    background-color: map-get($map: $background-color, $key: dark);
+    color: map-get($map: $font-color, $key: dark);
+    border-color: map-get($map: $border-color, $key: dark);
+}
+
+div {
+    border-width: 0px;
+    border-style: solid;
+    border-radius: $border-radius;
 }
